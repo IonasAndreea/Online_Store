@@ -72,6 +72,10 @@ public class Clients {
         isAdmin = admin;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Clients{" +

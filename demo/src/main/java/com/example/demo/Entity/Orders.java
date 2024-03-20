@@ -37,6 +37,10 @@ public class Orders {
         this.orderDate = orderDate;
     }
 
+    public void setIdOrder(long idOrder) {
+        this.idOrder = idOrder;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +

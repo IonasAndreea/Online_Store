@@ -75,4 +75,8 @@ public class Products {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public void setIdProduct(long idProduct) {
+        this.idProduct = idProduct;
+    }
 }
