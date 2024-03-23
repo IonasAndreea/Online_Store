@@ -15,22 +15,49 @@ public class ClientsService {
     @Autowired
     private ClientRepository clientRepository;
 
+
+    /**
+     *
+     * @return a list of all clients.
+     */
     public List<Clients> getAllClients(){
         return clientRepository.findAll();
     }
 
+    /**
+     *
+     * @param id is the id of the client to retrieve
+     * @return Representing the retrieved client
+     */
     public Optional<Clients> getClientsById(long id){
         return clientRepository.findById(id);
     }
+
+    /**
+     *
+     * @param client is the client that we want to create
+     * @return the actual created client
+     */
 
     public Clients createClient(Clients client){
         return clientRepository.save(client);
     }
 
+    /**
+     *
+     * @param id the ID of the client to delete
+     */
     public void deleteClient(long id){
         clientRepository.deleteById(id);
     }
 
+
+    /**
+     *
+     * @param id the id of the client we need to update
+     * @param client representing the updated client data
+     * @return Representing the updated client
+     */
     public Clients updateClient(long id, Clients client) {
         Optional<Clients> optionalExistingClients = clientRepository.findById(id);
         if (optionalExistingClients.isPresent()) {

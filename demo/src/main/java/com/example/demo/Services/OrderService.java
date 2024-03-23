@@ -14,18 +14,36 @@ public class OrderService {
     @Autowired
     public OrderService(OrderRepository orderRepository){this.orderRepository = orderRepository;}
 
+    /**
+     *
+     * @return a list of all orders.
+     */
     public List<Orders> getAllOrders(){
         return orderRepository.findAll();
     }
 
+    /**
+     *
+     * @param id is the id of the order to retrieve
+     * @return Representing the retrieved order
+     */
     public Optional <Orders> getOrderById(long id){
         return orderRepository.findById(id);
     }
 
+    /**
+     *
+     * @param order is the order that we want to create
+     * @return the actual created order
+     */
     public Orders createOrder(Orders order){
         return orderRepository.save(order);
     }
 
+    /**
+     *
+     * @param id the ID of the order to delete
+     */
     public void deleteOrder(long id){
         if (orderRepository.existsById(id)){
             orderRepository.deleteById(id);

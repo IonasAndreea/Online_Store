@@ -16,11 +16,20 @@ public class UserController {
     @Autowired
     private ClientsService clientsService;
 
+    /**
+     *
+     * @return the list with all the clients
+     */
     @GetMapping
     public List<Clients> getAllClients(){
         return clientsService.getAllClients();
     }
 
+    /**
+     *
+     * @param id the id of the client we want to find
+     * @return the client we found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Clients>> getClientsById(@PathVariable Long id){
         Optional<Optional<Clients>> optionalClients = Optional.ofNullable(clientsService.getClientsById(id));
@@ -31,11 +40,23 @@ public class UserController {
         }
     }
 
+    /**
+     *
+     * @param client  Representing the client to be created.
+     * @return Representing the created client.
+     */
     @PostMapping("/insertClient")
     public ResponseEntity<Clients> createClient(@RequestBody Clients client) {
         return ResponseEntity.status(HttpStatus.CREATED).body(clientsService.createClient(client));
     }
 
+
+    /**
+     *
+     * @param id The ID of the client to update.
+     * @param client The client representing the updated client data.
+     * @return The updated product.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Clients> updateCliente(@PathVariable Long id, @RequestBody Clients client){
         Clients updateClient = clientsService.updateClient(id, client);
@@ -44,6 +65,11 @@ public class UserController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    /**
+     *
+     * @param id The ID of the client to delete.
+     */
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteClient(@PathVariable Long id){

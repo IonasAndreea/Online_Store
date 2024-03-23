@@ -26,6 +26,12 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+
+    /**
+     *
+     * @param id the id of the product we want to find
+     * @return the product we found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Products> getProductById(@PathVariable Long id){
         Optional <Products> optionalProduct = productService.getProductById(id);
@@ -36,12 +42,24 @@ public class ProductController {
         }
     }
 
+    /**
+     *
+     * @param product  representing the product to be created.
+     * @return Representing the created product.
+     */
     @PostMapping("/insertProduct")
     public ResponseEntity<Products> createProduct(@RequestBody Products product){
         return  ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(product));
 
     }
 
+
+    /**
+     *
+     * @param id The ID of the product to update.
+     * @param product The product representing the updated product data.
+     * @return The updated product.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Products> updateProduct(@PathVariable Long id, @RequestBody Products product){
         Products updateProduct = productService.updateProduct(id, product);
@@ -51,6 +69,10 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
+    /**
+     *
+     * @param id The ID of the product to delete.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
