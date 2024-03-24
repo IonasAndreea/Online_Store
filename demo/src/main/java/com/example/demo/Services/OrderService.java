@@ -56,6 +56,9 @@ public class OrderService {
             Orders existingOredr = optionalExistingOredrs.get();
             existingOredr.setOrderDate(order.getOrderDate());
             existingOredr.setIdOrder(order.getIdOrder());
+            existingOredr.setProduct(order.getProduct());
+            existingOredr.setQuantity(order.getQuantity());
+            existingOredr.setPrice(order.getPrice());
             return orderRepository.save(existingOredr);
         } else {
             return null;
