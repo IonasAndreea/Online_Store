@@ -2,6 +2,8 @@ package com.example.demo.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "clients")
 
@@ -15,6 +17,7 @@ public class Clients {
     private String address;
     private Boolean isAdmin;
 
+
     public Clients(long id, String userName, String email, String password, String address, Boolean isAdmin){
         this.id = id;
         this.userNane = userName;
@@ -22,6 +25,7 @@ public class Clients {
         this.password = password;
         this.address = address;
         this.isAdmin = isAdmin;
+
     }
 
     public Clients() {
@@ -75,6 +79,7 @@ public class Clients {
     public void setId(long id) {
         this.id = id;
     }
+
 
     @Override
     public String toString() {

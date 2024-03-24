@@ -28,13 +28,18 @@ public class Orders {
                    @JoinColumn(name = "Product_id",
                            referencedColumnName = "id_prod")})
    private List<Products> product;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Clients client;
     private int quantity;
     private double price;
 
-    public Orders(long idOrder, LocalDateTime orderDate, List <Products> product, int quantity, double price){
+    public Orders(long idOrder, LocalDateTime orderDate, List <Products> product, Clients client, int quantity, double price){
         this.idOrder = idOrder;
         this.orderDate = orderDate;
         this.product = product;
+        this.client = client;
         this.quantity = quantity;
         this.price = price;
     }
@@ -81,6 +86,14 @@ public class Orders {
 
     public void setProduct(List<Products> product) {
         this.product = product;
+    }
+
+    public Clients getClient() {
+        return client;
+    }
+
+    public void setClient(Clients client) {
+        this.client = client;
     }
 
     @Override

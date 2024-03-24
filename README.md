@@ -31,6 +31,52 @@ Pentru a marca aceste clase ca entitati JPA, am folosit anotarea @Entity. Aceast
 Pentru a defini cheia primara a fiecarui tabel, am folosit anotarea @Id. Aceasta indica ca campul marcat este cheia primara a tabelului din baza de date. Pentru a specifica modul in care valorile cheii primare sunt generate, am utilizat anotarea @GeneratedValue. Am folosit GenerationType.IDENTITY, ceea ce inseamna ca valorile cheii primare sunt generate automat de catre baza de date.
 In plus, am creat o interfata Repository care extinde JpaRepository furnizata de Spring Data JPA. Aceasta interfata defineste un set de metode pentru a efectua operatiile CRUD (Create, Read, Update, Delete) pe baza de date. Prin adnotarea @Repository, indicam ca aceasta interfata este o componenta Spring care gestioneaza interactiunea cu baza de date. Aceasta faciliteaza integrarea si gestionarea operatiunilor de persistenta in aplicatie. Folosind aceasta interfata, putem accesa si manipula datele in baza de date folosind operatiuni standardizate.
 
+## *4. Baza de date*
+Baza de date cuprinde 4 tabele:
+#### ***CLIENTS***
+- id bigint (PK), 
+- address varchar(255),
+- email varchar(255),
+- is_admin bit(1),
+- password varchar(255),
+- user_nane varchar(255))
+
+#### ***PRODUCTS***
+- id_prod bigint (PK),
+- description varchar(255) 
+- name_prod varchar(255) 
+- price double 
+- stock int
+
+#### ***ORDERS***
+- id_order bigint (PK) 
+- order_date datetime(6) 
+- price double 
+- quantity int 
+- client_id bigint
+
+#### ***ORDERS_PRODUCT***
+- order_id bigint 
+- product_id bigint
+
+Iar principalele relatii dintre ele sunt:
+- many to many intre Orders si Products
+- many to one intre Orders si Clients
+
+Pentru a gestiona relatia de many to many intre comenzile si produsele lor, este folosita o tabela de legatura numita "orders_product". Aceasta tabela are o coloana pentru "order_id", care este foregin key catre "id_order" in tabelul "orders", si o coloana pentru "product_id", care este foregin key catre "id_prod" in tabelul "products".
+Entitatea "Clients" este legata de entitatea "Orders" printr-o relatie de many to one, deoarece un client poate plasa mai multe comenzi, dar o comanda este plasata de un singur client.
+
+Aceasta schema permite să fie gestionate comenzile, produsele si clientii lor in cadrul unei aplicatii, stabilind relatii intre aceste entitati in baza de date pentru a asigura coerenta si integritatea datelor.
+
+
+
+
+
+
+
+
+
+
 
 
 
