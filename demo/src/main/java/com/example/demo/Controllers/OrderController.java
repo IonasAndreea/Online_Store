@@ -60,7 +60,7 @@ public class OrderController {
      * @param order Representing the updated order data.
      * @return The updated order.
      */
-    @PutMapping("/insertOrder")
+    @PutMapping("/{id}")
     public ResponseEntity<Orders> updateOrder(@PathVariable Long id, @RequestBody Orders order){
         Orders updateOrder = orderService.updateOrder(id, order);
         if(updateOrder != null){
