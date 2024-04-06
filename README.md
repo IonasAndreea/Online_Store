@@ -73,7 +73,9 @@ Pattern-ul Observer este unul dintre cele mai utilizate pattern-uri de proiectar
 
 Acesta este util atunci cand avem un obiect (denumit subiect) care trebuie sa notifice alte obiecte (denumite observatori sau ascultatori) atunci cand starea sa se schimba, fara ca observatorii sa fie constienti de existenta altor observatori. Prin intermediul acestui pattern, subiectul si observatorii sunt decuplate, ceea ce duce la o structura modulara si usor de intretinut.
 
+Pentru a realiza Observer pattern, voi notifica clientii in momentul in care stocul produselor urmarite se modifica.
 
+Am creat un pachet in care am creat 2 interfete,  una pentru Subject(StockProduct)si una pentru Observer(StockObserver). Aceste interfete sunt implementate de clasele Cilent si Products. De asemenea, Product va avea o lista de clienti care sunt interesati daca stocul se modifica.
 
 
 
