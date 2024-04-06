@@ -1,13 +1,18 @@
 package com.example.demo.Entity;
 
+import com.example.demo.patterns.StockObserver;
+import com.example.demo.patterns.StockProduct;
 import jakarta.persistence.*;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 
-public class Products {
+public class Products implements StockProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_prod")
@@ -17,7 +22,8 @@ public class Products {
     private String description;
     private double price;
     private int stock;
-
+    @Transient
+    private List <StockObserver> observers = new ArrayList<>();
     public Products(long idProduct, String nameProduct, String description, double price, int stock){
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
@@ -78,5 +84,29 @@ public class Products {
 
     public void setIdProduct(long idProduct) {
         this.idProduct = idProduct;
+    }
+
+    @Override
+    public void registerObserver(StockObserver observer) {
+        observers.add(observer);
+
+    }
+
+    @Override
+    public void removeObserver(StockObserver observer) {
+        observers.remove(observer);
+
+    }
+
+    @Override
+    public void notifyObservers(String stockName, int stock) {
+        for(StockObserver observer : observers){
+            observer.update(stockName, stock);
+        }
+
+    }
+
+    public void setStock(String stockName, int stock){
+        notifyObservers(stockName, stock);
     }
 }

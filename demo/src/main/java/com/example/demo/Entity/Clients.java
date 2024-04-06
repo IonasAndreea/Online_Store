@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import com.example.demo.patterns.StockObserver;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "clients")
 
-public class Clients {
+public class Clients implements StockObserver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -91,5 +92,10 @@ public class Clients {
                 ", address='" + address + '\'' +
                 ", isAdmin=" + isAdmin +
                 '}';
+    }
+
+    @Override
+    public void update(String productName, int stock) {
+        System.out.println(id +" " +  userNane + " recived an update for " + productName + " " + stock);
     }
 }
