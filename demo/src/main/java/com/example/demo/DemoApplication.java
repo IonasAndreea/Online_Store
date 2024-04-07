@@ -26,9 +26,9 @@ public class DemoApplication {
 		pro1.registerObserver(client);
 		pro1.registerObserver(client1);
 
-		pro1.setStock("Ciocolata", 50);
+		pro1.setPrice("Ciocolata", 50);
 		pro1.removeObserver(client);
-		pro1.setStock("Cereale", 60);
+		pro1.setPrice("Cereale", 60);
 
 
 	}

@@ -64,7 +64,7 @@ public class ProductController {
     public ResponseEntity<Products> updateProduct(@PathVariable Long id, @RequestBody Products product){
         Products updateProduct = productService.updateProduct(id, product);
         if(updateProduct != null){
-            updateProduct.setStock(updateProduct.getNameProduct(), updateProduct.getStock());
+            updateProduct.setPrice(updateProduct.getNameProduct(),updateProduct.getPrice());
             return ResponseEntity.ok(updateProduct);
         }
         return ResponseEntity.notFound().build();

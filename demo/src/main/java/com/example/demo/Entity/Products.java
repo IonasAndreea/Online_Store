@@ -109,17 +109,17 @@ public class Products implements StockProduct {
     /**
      *
      * @param stockName the name of the product
-     * @param stock the new value of the stock
+     * @param price the new value of the stock
      */
     @Override
-    public void notifyObservers(String stockName, int stock) {
+    public void notifyObservers(String stockName, double price) {
         for(StockObserver observer : observers){
-            observer.update(stockName, stock);
+            observer.update(stockName, price);
         }
 
     }
 
-    public void setStock(String stockName, int stock){
-        notifyObservers(stockName, stock);
+    public void setPrice(String stockName, double price){
+        notifyObservers(stockName, price);
     }
 }
