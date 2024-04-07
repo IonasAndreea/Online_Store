@@ -78,7 +78,8 @@ Pentru a realiza Observer pattern, voi notifica clientii in momentul in care sto
 
 Am creat un pachet in care am creat 2 interfete,  una pentru Subject(StockProduct)si una pentru Observer(StockObserver). Aceste interfete sunt implementate de clasele Cilent si Products. De asemenea, Product va avea o lista de clienti care sunt interesati daca stocul se modifica.
 
-
+Un pattern Observer este unul dintre cele mai utile pattern-uri de design in programarea orientata pe obiecte si este adesea utilizat in dezvoltarea de aplicatii pentru a implementa un sistem de notificare asupra modificarilor de stare ale unui obiect (numit subiect) catre unul sau mai multi observatori.
+In contextul relatiei dintre clienti si produse, implementarea unui pattern Observer ar putea fi benefica pentru a monitoriza schimbarile de stare ale produselor si pentru a notifica clientii atunci cand aceste schimbari au loc. 
 
 
 
