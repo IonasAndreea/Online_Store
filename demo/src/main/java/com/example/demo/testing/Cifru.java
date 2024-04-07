@@ -35,10 +35,16 @@ public class Cifru {
             return String.valueOf(chars);
         }
 
-        if(com.equals(Complexity.AVERAGE)){
+        if (com.equals(Complexity.AVERAGE)) {
             char[] chars = this.cuv.toCharArray();
-            for(int i = 0; i < chars.length; i++){
-                chars[i] += 4;
+            for (int i = 0; i < chars.length; i++) {
+                if (chars[i] >= 'x' && chars[i] <= 'z') {
+                    chars[i] = (char) ('a' + (chars[i] - 'x'));
+                } else if (chars[i] >= 'X' && chars[i] <= 'Z') {
+                    chars[i] = (char) ('A' + (chars[i] - 'X'));
+                } else if (Character.isLetter(chars[i])) {
+                    chars[i] += 4;
+                }
             }
             return String.valueOf(chars);
         }
@@ -47,13 +53,21 @@ public class Cifru {
             Date d = new Date();
             char[] chars = this.cuv.toCharArray();
             for(int i = 0; i < chars.length; i++) {
-                chars[i] += d.getDay();
+                chars[i] += d.getDate();
+                if (Character.isLowerCase(this.cuv.charAt(i))) {
+                    if (chars[i] > 'z') {
+                        chars[i] -= 26;
+                    }
+                } else if (Character.isUpperCase(this.cuv.charAt(i))) {
+                    if (chars[i] > 'Z') {
+                        chars[i] -= 26;
+                    }
+                }
             }
             return String.valueOf(chars);
         }
-        return  null;
+        return null;
     }
-
     @Override
     public String toString() {
         return "Cifru{" +

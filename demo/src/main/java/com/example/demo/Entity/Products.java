@@ -86,18 +86,31 @@ public class Products implements StockProduct {
         this.idProduct = idProduct;
     }
 
+    /**
+     *
+     * @param observer add a new observer for this product
+     */
     @Override
     public void registerObserver(StockObserver observer) {
         observers.add(observer);
 
     }
 
+    /**
+     *
+     * @param observer remove an observer for this product
+     */
     @Override
     public void removeObserver(StockObserver observer) {
         observers.remove(observer);
 
     }
 
+    /**
+     *
+     * @param stockName the name of the product
+     * @param stock the new value of the stock
+     */
     @Override
     public void notifyObservers(String stockName, int stock) {
         for(StockObserver observer : observers){

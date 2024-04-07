@@ -63,6 +63,7 @@ Iar principalele relatii dintre ele sunt:
 - many to many intre Orders si Products
 - many to one intre Orders si Clients
 
+<img src="DB.jpg">
 Pentru a gestiona relatia de many to many intre comenzile si produsele lor, este folosita o tabela de legatura numita "orders_product". Aceasta tabela are o coloana pentru "order_id", care este foregin key catre "id_order" in tabelul "orders", si o coloana pentru "product_id", care este foregin key catre "id_prod" in tabelul "products".
 Entitatea "Clients" este legata de entitatea "Orders" printr-o relatie de many to one, deoarece un client poate plasa mai multe comenzi, dar o comanda este plasata de un singur client.
 

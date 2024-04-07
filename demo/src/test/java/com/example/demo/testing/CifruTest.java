@@ -43,6 +43,12 @@ public class CifruTest {
     }
 
     @Test
+    void Test8(){
+        Cifru cifru = new Cifru("ZxY");
+        assertEquals("CaB", cifru.check(Complexity.AVERAGE));
+    }
+
+    @Test
     void Test6(){
         Cifru cifru = new Cifru("XyZ");
         assertEquals("YzA", cifru.check(Complexity.WEAK));
@@ -51,7 +57,21 @@ public class CifruTest {
     @Test
     void Test7(){
         Cifru cifru = new Cifru("Anz");
-        assertEquals("Erd", cifru.check(Complexity.AVERAGE));
+        assertEquals("Erc", cifru.check(Complexity.AVERAGE));
+    }
+
+
+
+    @Test
+    void Test9(){
+        Cifru cifru = new Cifru("Ana");
+        assertEquals("Huh", cifru.check(Complexity.COMPLEX));
+    }
+
+    @Test
+    void Test10(){
+        Cifru cifru = new Cifru("Azx");
+        assertEquals("Hge", cifru.check(Complexity.COMPLEX));
     }
 
 }

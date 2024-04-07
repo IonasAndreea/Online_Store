@@ -40,6 +40,7 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
+
     /**
      *
      * @param id the ID of the order to delete
@@ -50,6 +51,12 @@ public class OrderService {
         }
     }
 
+
+    /**
+     *
+     * @param id the ID of the order to update
+     * @param order the new information about the order
+     */
     public Orders updateOrder(long id, Orders order) {
         Optional<Orders> optionalExistingOredrs = orderRepository.findById(id);
         if (optionalExistingOredrs.isPresent()) {
@@ -58,7 +65,6 @@ public class OrderService {
             existingOredr.setIdOrder(order.getIdOrder());
             existingOredr.setProduct(order.getProduct());
             existingOredr.setClient(order.getClient());
-            existingOredr.setQuantity(order.getQuantity());
             existingOredr.setPrice(order.getPrice());
             return orderRepository.save(existingOredr);
         } else {

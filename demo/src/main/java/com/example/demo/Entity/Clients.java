@@ -94,6 +94,12 @@ public class Clients implements StockObserver {
                 '}';
     }
 
+    /**
+     *
+     * @param productName the name of the product we need to update
+     * @param stock representing the new stock of the product
+     * @return Representing the updated product
+     */
     @Override
     public void update(String productName, int stock) {
         System.out.println(id +" " +  userNane + " recived an update for " + productName + " " + stock);

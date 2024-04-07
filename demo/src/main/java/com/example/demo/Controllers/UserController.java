@@ -66,6 +66,7 @@ public class UserController {
         return ResponseEntity.notFound().build();
     }
 
+
     /**
      *
      * @param id The ID of the client to delete.
