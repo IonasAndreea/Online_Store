@@ -82,6 +82,32 @@ Un pattern Observer este unul dintre cele mai utile pattern-uri de design in pro
 In contextul relatiei dintre clienti si produse, implementarea unui pattern Observer ar putea fi benefica pentru a monitoriza schimbarile de stare ale produselor si pentru a notifica clientii atunci cand aceste schimbari au loc. 
 
 
+## *6. API's*
+In contextul dezvoltarii web, API-ul (Interfata de Programare a Aplicatiilor) defineste un set de reguli si protocoale care permit aplicatiilor software diferite sa comunice intre ele. In contextul serviciilor web RESTful, endpoint-urile API sunt URL-uri sau URI-uri (Identificatori Uniformi de Resurse) specifice care sunt expuse de un server pentru a interactiona cu diferite resurse sau pentru a efectua actiuni specifice.
+
+### *Client API's: *
+Endpoint-urile API folosite de client sunt:
+GET /clients: Endpoint pentru a obtine o lista cu toti clientii.
+GET /clients/{id}: Endpoint pentru a obtine un client specific dupa ID-ul sau.
+POST /clients/insertClient: Endpoint pentru a crea un nou client.
+PUT /clients/{id}: Endpoint pentru a actualiza un client existent dupa ID-ul sau.
+DELETE /clients/{id}: Endpoint pentru a sterge un client existent dupa ID-ul sau.
+
+Endpoint pentru Obtinerea Tuturor Clientilor:
+Acest endpoint recupereaza o lista a tuturor clientilor inregistrti in prezent in sistem. In urma unei solicitari reusite, returneaza un array care contine detalii despre fiecare client. Acest endpoint este utilizat in mod obisnuit de catre administratori sau aplicatiile care necesita o vedere cuprinzatoare a tuturor clientilor inregistrati in sistem.
+
+Endpoint pentru Obtinerea Clientului dupa ID:
+Endpoint-ul pentru Obtinerea Clientului dupa ID permite obtinerea detaliilor unui client specific pe baza identificatorului lor unic.Acest endpoint este util pentru obtinerea detaliilor individuale ale clientului pentru afisare sau procesare ulterioara.
+
+Endpoint pentru Crearea Clientului:
+Endpoint-ul pentru Crearea Clientului faciliteaza adaugarea unui nou client in sistem. In urma crearii reusite, acest endpoint returneaza obiectul clientului nou creat impreuna cu un cod de stare care indica executarea reusita. Acest endpoint este utilizat in mod obisnuit atunci cand se adauga noi clienti in sistem prin solicitari API.
+
+Endpoint pentru Actualizarea Clientului:
+Endpoint-ul pentru Actualizarea Clientului permite modificarea informatiilor unui client existent in sistem. Prin furnizarea identificatorului unic al clientului si a unui obiect JSON care contine detaliile actualizate, acest endpoint actualizeaza informatiile clientului in consecinta. In urma actualizarii reusite, returneaza obiectul clientului actualizat impreuna cu un cod de stare care indica executarea reusita. Acest endpoint este utilizat in mod obisnuit pentru editarea detaliilor clientului.
+
+Endpoint pentru Stergerea Clientului:
+Endpoint-ul pentru Stergerea Clientului permite eliminarea unui client specific din sistem pe baza identificatorului lor unic. Prin furnizarea ID-ului clientului ca parametru de cale, acest endpoint sterge inregistrarea clientului corespunzatoare din sistem. In urma stergerii reusite, returneaza un cod de stare de succes care indica faptul ca clientul a fost eliminat cu succes. Acest endpoint este utilizat in mod obisnuit atunci cand clientii doresc sa se dezaboneze din sistem sau atunci cand actiunile administrative necesita eliminarea unor inregistrari specifice de clienti.
+
 
 
 
