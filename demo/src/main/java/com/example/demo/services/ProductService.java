@@ -1,11 +1,18 @@
-package com.example.demo.Services;
+package com.example.demo.services;
 
-import com.example.demo.Entity.Products;
-import com.example.demo.Repositories.ProductRepository;
+import com.example.demo.entity.Products;
+import com.example.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * The service class responsible for managing products within the system.
+ * It provides methods for retrieving, creating, updating, and deleting products.
+ * This class acts as a bridge between the controller layer and the data access layer,
+ * ensuring proper handling and manipulation of product data.
+ */
 @Service
 public class ProductService {
     private ProductRepository productRepository;
@@ -16,46 +23,52 @@ public class ProductService {
     }
 
     /**
+     * Retrieves a list of all products stored in the system.
      *
-     * @return a list of all products.
+     * @return A list containing all products available in the system.
      */
     public List<Products> getAllProducts(){
         return productRepository.findAll();
     }
 
     /**
+     * Retrieves a specific product based on its unique identifier.
      *
-     * @param id is the id of the product to retrieve
-     * @return Representing the retrieved product
+     * @param id The unique identifier of the product to retrieve.
+     * @return An Optional containing the retrieved product, if found; otherwise, an empty Optional.
      */
     public Optional<Products> getProductById(long id){
         return productRepository.findById(id);
     }
 
     /**
+     * Creates a new product entity within the system.
      *
-     * @param product is the product that we want to create
-     * @return the actual created product
+     * @param product The product object to be created.
+     * @return The newly created product entity after successful persistence.
      */
     public Products createProduct(Products product){
         return productRepository.save(product);
     }
 
     /**
+     * Deletes a product from the system based on its unique identifier.
      *
-     * @param id the ID of the product to delete
+     * @param id The unique identifier of the product to delete.
      */
     public void deleteProduct(long id){
-        if(productRepository.existsById(id)){
+        //if(productRepository.existsById(id)){
             productRepository.deleteById(id);
-        }
+        //}
     }
 
     /**
+     * Updates an existing product entity with new information provided.
      *
-     * @param id the id of the product we need to update
-     * @param product representing the updated product data
-     * @return Representing the updated product
+     * @param id The unique identifier of the product to update.
+     * @param product The updated product object containing new attribute values.
+     * @return The updated product entity after successful persistence,
+     * or null if no product with the provided ID exists.
      */
     public Products updateProduct(long id, Products product) {
         Optional<Products> optionalExistingProduct = productRepository.findById(id);

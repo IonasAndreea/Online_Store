@@ -1,9 +1,7 @@
-package com.example.demo.Entity;
+package com.example.demo.entity;
 
 import com.example.demo.patterns.StockObserver;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -103,6 +101,6 @@ public class Clients implements StockObserver {
 
     @Override
     public void update(String productName, double price) {
-        System.out.println(id +" " +  userNane + " recived an update for " + productName + " " + price);
+        System.out.println(id +" " +  userNane + " received an update for " + productName + " " + price + "\n");
     }
 }

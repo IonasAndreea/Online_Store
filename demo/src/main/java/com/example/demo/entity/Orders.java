@@ -1,7 +1,6 @@
-package com.example.demo.Entity;
+package com.example.demo.entity;
 import jakarta.persistence.*;
 
-import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;

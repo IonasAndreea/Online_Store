@@ -4,9 +4,11 @@ import java.util.Date;
 
 public class Cifru {
     private String cuv;
+    private Date date;
 
-    public Cifru(String cuv){
+    public Cifru(String cuv, Date date){
         this.cuv = cuv;
+        this.date = date;
     }
 
     public String getCuv() {
@@ -50,10 +52,10 @@ public class Cifru {
         }
 
         if(com.equals(Complexity.COMPLEX)){
-            Date d = new Date();
+            //Date d = new Date();
             char[] chars = this.cuv.toCharArray();
             for(int i = 0; i < chars.length; i++) {
-                chars[i] += d.getDate();
+                chars[i] += date.getDate();
                 if (Character.isLowerCase(this.cuv.charAt(i))) {
                     if (chars[i] > 'z') {
                         chars[i] -= 26;

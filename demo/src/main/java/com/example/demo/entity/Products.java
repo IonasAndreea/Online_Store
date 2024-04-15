@@ -1,10 +1,8 @@
-package com.example.demo.Entity;
+package com.example.demo.entity;
 
 import com.example.demo.patterns.StockObserver;
 import com.example.demo.patterns.StockProduct;
 import jakarta.persistence.*;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.ArrayList;
 import java.util.List;

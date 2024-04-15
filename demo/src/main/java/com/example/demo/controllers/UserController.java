@@ -1,7 +1,7 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
-import com.example.demo.Entity.Clients;
-import com.example.demo.Services.ClientsService;
+import com.example.demo.entity.Clients;
+import com.example.demo.services.ClientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The controller class responsible for managing HTTP requests related to clients (users).
+ * It provides endpoints for retrieving, creating, updating, and deleting client entities.
+ * This class serves as the interface between the client-side applications and the client management system.
+ */
 @RestController
 @RequestMapping("/clients")
 public class UserController {
@@ -17,8 +22,9 @@ public class UserController {
     private ClientsService clientsService;
 
     /**
+     * Retrieves a list of all clients stored in the system.
      *
-     * @return the list with all the clients
+     * @return A list containing all clients and an HTTP status code 200 (OK).
      */
     @GetMapping
     public List<Clients> getAllClients(){
@@ -26,9 +32,11 @@ public class UserController {
     }
 
     /**
+     * Retrieves a specific client based on its unique identifier.
      *
-     * @param id the id of the client we want to find
-     * @return the client we found
+     * @param id The unique identifier of the client to retrieve.
+     * @return A ResponseEntity containing the retrieved client and an HTTP status code 200 (OK) if found,
+     * or an HTTP status code 404 (Not Found) if the client is not found.
      */
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Clients>> getClientsById(@PathVariable Long id){
@@ -41,9 +49,10 @@ public class UserController {
     }
 
     /**
+     * Creates a new client entity within the system.
      *
-     * @param client  Representing the client to be created.
-     * @return Representing the created client.
+     * @param client The client object to be created.
+     * @return A ResponseEntity containing the created client and an HTTP status code 201 (Created).
      */
     @PostMapping("/insertClient")
     public ResponseEntity<Clients> createClient(@RequestBody Clients client) {
@@ -52,10 +61,12 @@ public class UserController {
 
 
     /**
+     * Updates an existing client entity with new information provided.
      *
-     * @param id The ID of the client to update.
-     * @param client The client representing the updated client data.
-     * @return The updated product.
+     * @param id The unique identifier of the client to update.
+     * @param client The updated client object containing new attribute values.
+     * @return A ResponseEntity containing the updated client and an HTTP status code 200 (OK) if successful,
+     * or an HTTP status code 404 (Not Found) if the client with the given ID is not found.
      */
     @PutMapping("/{id}")
     public ResponseEntity<Clients> updateCliente(@PathVariable Long id, @RequestBody Clients client){
@@ -68,10 +79,11 @@ public class UserController {
 
 
     /**
+     * Deletes a client from the system based on its unique identifier.
      *
-     * @param id The ID of the client to delete.
+     * @param id The unique identifier of the client to delete.
+     * @return A ResponseEntity with an HTTP status code 204 (No Content) indicating successful deletion.
      */
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteClient(@PathVariable Long id){
         clientsService.deleteClient(id);
