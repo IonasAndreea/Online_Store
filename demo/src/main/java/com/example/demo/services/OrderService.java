@@ -56,9 +56,9 @@ public class OrderService {
      * @param id The unique identifier of the order to delete.
      */
     public void deleteOrder(long id){
-        if (orderRepository.existsById(id)){
+        //if (orderRepository.existsById(id)){
             orderRepository.deleteById(id);
-        }
+        //}
     }
 
 

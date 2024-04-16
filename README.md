@@ -108,8 +108,21 @@ Endpoint-ul pentru Actualizarea Clientului permite modificarea informatiilor unu
 Endpoint pentru Stergerea Clientului:
 Endpoint-ul pentru Stergerea Clientului permite eliminarea unui client specific din sistem pe baza identificatorului lor unic. Prin furnizarea ID-ului clientului ca parametru de cale, acest endpoint sterge inregistrarea clientului corespunzatoare din sistem. In urma stergerii reusite, returneaza un cod de stare de succes care indica faptul ca clientul a fost eliminat cu succes. Acest endpoint este utilizat in mod obisnuit atunci cand clientii doresc sa se dezaboneze din sistem sau atunci cand actiunile administrative necesita eliminarea unor inregistrari specifice de clienti.
 
+### *Product API's: *
+Endpoint pentru Obtinerea Tuturor Produselor:
+Endpoint-ul pentru Obtinerea Tuturor Produselor recupereaza o lista a tuturor produselor disponibile in prezent in sistem. In urma unei solicitari reusite, returneaza un array care contine detalii despre fiecare produs. Acest endpoint este utilizat in mod obisnuit de catre aplicatii care necesita o vedere cuprinzatoare a tuturor produselor disponibile in sistem.
 
+Endpoint pentru Obtinerea Produsului dupa ID:
+Endpoint-ul pentru Obtinerea Produsului dupa ID permite obtinerea detaliilor unui produs specific pe baza identificatorului sau unic. Prin furnizarea ID-ului produsului ca parametru de cale, acest endpoint returneaza informatii detaliate despre produs. Acest endpoint este util pentru obtinerea detaliilor individuale ale produsului pentru afisare sau procesare ulterioara.
 
+Endpoint pentru Crearea Produsului:
+Endpoint-ul pentru Crearea Produsului faciliteaza adaugarea unui nou produs in sistem. Acesta accepta un obiect JSON care reprezinta detaliile produsului. In urma crearii reusite, acest endpoint returneaza obiectul produsului nou creat impreuna cu un cod de stare care indica executarea reusita. Acest endpoint este utilizat in mod obisnuit atunci cand se adauga noi produse in sistem prin solicitari API.
+
+Endpoint pentru Actualizarea Produsului:
+Endpoint-ul pentru Actualizarea Produsului permite modificarea informatiilor unui produs existent in sistem. Prin furnizarea identificatorului unic al produsului si a unui obiect JSON care contine detaliile actualizate, acest endpoint actualizeaza informatiile produsului in consecinta. In urma actualizarii reusite, returneaza obiectul produsului actualizat impreuna cu un cod de stare care indica executarea reusita. Acest endpoint este utilizat in mod obisnuit pentru editarea detaliilor produsului.
+
+Endpoint pentru Stergerea Produsului:
+Endpoint-ul pentru Stergerea Produsului permite eliminarea unui produs specific din sistem pe baza identificatorului sau unic. Prin furnizarea ID-ului produsului ca parametru de cale, acest endpoint sterge inregistrarea produsului corespunzatoare din sistem. In urma stergerii reusite, returneaza un cod de stare de succes care indica faptul ca produsul a fost eliminat cu succes. Acest endpoint este utilizat in mod obisnuit atunci cand produsele sunt intrerupte sau atunci cand actiunile administrative necesita eliminarea unor inregistrari specifice de produse.
 
 
 
