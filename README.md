@@ -124,6 +124,28 @@ Endpoint-ul pentru Actualizarea Produsului permite modificarea informatiilor unu
 Endpoint pentru Stergerea Produsului:
 Endpoint-ul pentru Stergerea Produsului permite eliminarea unui produs specific din sistem pe baza identificatorului sau unic. Prin furnizarea ID-ului produsului ca parametru de cale, acest endpoint sterge inregistrarea produsului corespunzatoare din sistem. In urma stergerii reusite, returneaza un cod de stare de succes care indica faptul ca produsul a fost eliminat cu succes. Acest endpoint este utilizat in mod obisnuit atunci cand produsele sunt intrerupte sau atunci cand actiunile administrative necesita eliminarea unor inregistrari specifice de produse.
 
+### *Order API's:*
+Endpoint pentru Obtinerea Tuturor Comenzilor:
+Endpoint-ul pentru Obtinerea Tuturor Comenzilor recupereaza o lista a tuturor comenzilor plasate in prezent in sistem. In urma unei cereri reusite, acesta returneaza un array ce contine detalii despre fiecare comanda. Acest endpoint este folosit in mod obisnuit de administratori sau aplicatii care necesita o vedere cuprinzatoare a tuturor comenzilor din sistem.
+
+Endpoint pentru Obtinerea Comenzii dupa ID:
+Endpoint-ul pentru Obtinerea Comenzii dupa ID permite obtinerea detaliilor unei comenzi specifice pe baza identificatorului sau unic. Prin furnizarea ID-ului comenzii ca parametru de cale, acest endpoint returneaza informatii detaliate despre comanda. Acest endpoint este util pentru obtinerea detaliilor individuale ale comenzii pentru afisare sau procesare ulterioara.
+
+Endpoint pentru Crearea Comenzii:
+Endpoint-ul pentru Crearea Comenzii faciliteaza plasarea unei noi comenzi in sistem. Acesta accepta un obiect JSON care reprezinta detaliile comenzii. In urma crearii reusite, acest endpoint returneaza obiectul comenzii nou create impreuna cu un cod de stare care indica executia reusita. Acest endpoint este folosit in mod obisnuit atunci cand clientii plaseaza noi comenzi prin solicitari API.
+
+Endpoint pentru Actualizarea Comenzii:
+Endpoint-ul pentru Actualizarea Comenzii permite modificarea informatiilor unei comenzi existente in sistem. Prin furnizarea identificatorului unic al comenzii si a unui obiect JSON care contine detaliile actualizate, acest endpoint actualizeaza informatiile comenzii in consecinta. In urma actualizarii reusite, acesta returneaza obiectul comenzii actualizate impreuna cu un cod de stare care indica executia reusita. Acest endpoint este folosit in mod obisnuit pentru editarea detaliilor comenzii, cum ar fi modificarile produselor, actualizarile clientilor sau ajustarile preturilor.
+
+Endpoint pentru Stergerea Comenzii:
+Endpoint-ul pentru Stergerea Comenzii permite eliminarea unei comenzi specifice din sistem pe baza identificatorului sau unic. Prin furnizarea ID-ului comenzii ca parametru de cale, acest endpoint sterge inregistrarea corespunzatoare a comenzii din sistem. In urma stergerii reusite, acesta returneaza un cod de stare de succes care indica faptul ca comanda a fost eliminata cu succes. Acest endpoint este folosit in mod obisnuit atunci cand comenzile sunt anulate sau atunci cand actiunile administrative necesita eliminarea unor inregistrari specifice de comenzi.
+
+
+
+
+
+
+
 
 
 

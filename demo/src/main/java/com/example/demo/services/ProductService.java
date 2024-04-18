@@ -78,6 +78,7 @@ public class ProductService {
             existingProduct.setDescription(product.getDescription());
             existingProduct.setPrice(product.getPrice());
             existingProduct.setStock(product.getStock());
+            //existingProduct.setPrice(existingProduct.getNameProduct(), existingProduct.getPrice());
             return productRepository.save(existingProduct);
         } else {
             return null;
