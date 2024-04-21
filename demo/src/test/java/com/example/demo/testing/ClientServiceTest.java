@@ -68,5 +68,42 @@ public class ClientServiceTest {
         Mockito.verify(this.clientRepositoryMock).deleteById(clientId);
     }
 
+    @Test
+    public void testUpdateClient_ExistingClient() {
+        // Arrange
+        long clientId = 33;
+        Clients existingClient = new Clients(clientId, "Mara", "mara@here.com", "mar996523", "Cluj", false);
+        Clients updatedClient = new Clients(clientId, "UpdatedName", "updated@email.com", "newpassword", "NewAddress", true);
+        when(this.clientRepositoryMock.findById(clientId)).thenReturn(Optional.of(existingClient));
+        when(this.clientRepositoryMock.save(Mockito.any(Clients.class))).thenReturn(updatedClient); // Mocking save to return the updated client
+
+        // Act
+        Clients result = this.clientsService.updateClient(clientId, updatedClient);
+
+        // Assert
+        Mockito.verify(this.clientRepositoryMock).findById(clientId);
+        Mockito.verify(this.clientRepositoryMock).save(existingClient); // Verify that save is called with existing client
+        assertNotNull(result); // Ensure result is not null
+        assertEquals(updatedClient.getId(), result.getId());
+        assertEquals(updatedClient.getAddress(), result.getAddress());
+        assertEquals(updatedClient.getEmail(), result.getEmail());
+        assertEquals(updatedClient.getPassword(), result.getPassword());
+        assertEquals(updatedClient.getUserNane(), result.getUserNane());
+        assertEquals(updatedClient.getAdmin(), result.getAdmin());
+    }
+
+
+    @Test
+    public void testUpdateClient_NonExistingClient() {
+        long nonExistingClientId = 999;
+        Clients updatedClient = new Clients(nonExistingClientId, "UpdatedName", "updated@email.com", "newpassword", "NewAddress", true);
+        when(this.clientRepositoryMock.findById(nonExistingClientId)).thenReturn(Optional.empty());
+
+        Clients result = this.clientsService.updateClient(nonExistingClientId, updatedClient);
+
+        Mockito.verify(this.clientRepositoryMock).findById(nonExistingClientId);
+        assertNull(result);
+    }
+
 
 }

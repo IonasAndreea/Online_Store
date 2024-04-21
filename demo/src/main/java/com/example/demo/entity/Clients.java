@@ -6,6 +6,13 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "clients")
 
+/**
+ * Clasa Client reprezinta o entitate care stocheaza informatii despre clienti din sistem.
+ * Fiecare client are un identificator unic, un nume, o adresa si informatii de contact.
+ * Aceasta clasa permite gestionarea detaliilor clientilor, inclusiv crearea, actualizarea si stergerea acestora.
+ * De asemenea, furnizeaza metode pentru obtinerea detaliilor individuale ale clientilor.
+ */
+
 public class Clients implements StockObserver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

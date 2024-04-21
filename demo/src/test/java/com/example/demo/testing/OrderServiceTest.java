@@ -14,8 +14,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
@@ -71,5 +70,37 @@ public class OrderServiceTest {
         Mockito.verify(this.orderRepositoryMock).deleteById(orderId);
     }
 
+    @Test
+    public void testUpdateOrder_ExistingOrder() {
+        long orderId = 1;
+        Orders existingOrder = new Orders();
+        existingOrder.setIdOrder(orderId);
+        Orders updatedOrder = new Orders();
+        updatedOrder.setIdOrder(orderId);
+        when(this.orderRepositoryMock.findById(orderId)).thenReturn(Optional.of(existingOrder));
+        when(this.orderRepositoryMock.save(Mockito.any(Orders.class))).thenReturn(updatedOrder);
 
+        Orders result = this.oredrService.updateOrder(orderId, updatedOrder);
+
+        Mockito.verify(this.orderRepositoryMock).findById(orderId);
+        Mockito.verify(this.orderRepositoryMock).save(existingOrder);
+        assertNotNull(result);
+        assertEquals(updatedOrder.getIdOrder(), result.getIdOrder());
+        assertEquals(updatedOrder.getOrderDate(), result.getOrderDate());
+    }
+
+    @Test
+    public void testUpdateOrder_NonExistingOrder() {
+        // Arrange
+        long nonExistingOrderId = 999;
+        Orders updatedOrder = new Orders();
+        updatedOrder.setIdOrder(nonExistingOrderId);
+        when(this.orderRepositoryMock.findById(nonExistingOrderId)).thenReturn(Optional.empty());
+
+        Orders result = this.oredrService.updateOrder(nonExistingOrderId, updatedOrder);
+
+        Mockito.verify(this.orderRepositoryMock).findById(nonExistingOrderId);
+        assertNull(result);
+    }
 }
+

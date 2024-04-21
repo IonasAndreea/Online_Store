@@ -1,5 +1,6 @@
 package com.example.demo.testing;
 
+import com.example.demo.entity.Clients;
 import com.example.demo.entity.Products;
 import com.example.demo.repositories.ProductRepository;
 import com.example.demo.services.ProductService;
@@ -12,8 +13,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
@@ -70,6 +70,37 @@ public class ProductServiceTest {
         Mockito.verify(this.productRepositoryMock).deleteById(productId);
     }
 
+    @Test
+    public void testUpdateProduct_ExistingProduct() {
 
+        long productId = 1;
+        Products existingProduct = new Products(productId, "ProductA","DescriptionA", 100.0, 21);
+        Products updatedProduct = new Products(productId, "ProductB","DescriptionA", 19.0, 30);
+        when(this.productRepositoryMock.findById(productId)).thenReturn(Optional.of(existingProduct));
+        when(this.productRepositoryMock.save(Mockito.any(Products.class))).thenReturn(updatedProduct);
 
+        Products result = this.productService.updateProduct(productId, updatedProduct);
+
+        Mockito.verify(this.productRepositoryMock).findById(productId);
+        Mockito.verify(this.productRepositoryMock).save(existingProduct);
+        assertNotNull(result);
+        assertEquals(updatedProduct.getIdProduct(), result.getIdProduct());
+        assertEquals(updatedProduct.getNameProduct(), result.getNameProduct());
+        assertEquals(updatedProduct.getPrice(), result.getPrice(), 0.01);
+        assertEquals(updatedProduct.getDescription(), result.getDescription());
+    }
+
+    @Test
+    public void testUpdateProduct_NonExistingProduct() {
+        long nonExistingProductId = 999;
+        Products updatedProduct = new Products(nonExistingProductId, "NewProduct", "New Description", 200.0, 32);
+        when(this.productRepositoryMock.findById(nonExistingProductId)).thenReturn(Optional.empty());
+
+        Products result = this.productService.updateProduct(nonExistingProductId, updatedProduct);
+
+        Mockito.verify(this.productRepositoryMock).findById(nonExistingProductId);
+        assertNull(result);
+    }
 }
+
+

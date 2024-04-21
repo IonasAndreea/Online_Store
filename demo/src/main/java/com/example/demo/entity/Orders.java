@@ -8,6 +8,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
+
+/**
+ * Clasa Orders reprezinta o entitate care stocheaza informatii despre comenzile plasate in sistem.
+ * Fiecare comanda are un identificator unic, o data de comanda, produse asociate, client asociat si pret total.
+ * Aceasta clasa faciliteaza gestionarea comenzilor, inclusiv crearea, actualizarea si stergerea acestora.
+ * De asemenea, ofera metode pentru obtinerea detaliilor individuale ale comenzilor.
+ */
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

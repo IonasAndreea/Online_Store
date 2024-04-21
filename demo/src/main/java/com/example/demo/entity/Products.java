@@ -10,6 +10,13 @@ import java.util.List;
 @Entity
 @Table(name = "products")
 
+/**
+ * Clasa Products reprezinta o entitate care stocheaza informatii despre produsele disponibile in sistem.
+ * Fiecare produs are un identificator unic, un nume, o descriere, pret si disponibilitate in stoc.
+ * Aceasta clasa permite gestionarea produselor, inclusiv crearea, actualizarea si stergerea acestora.
+ * De asemenea, ofera metode pentru obtinerea detaliilor individuale ale produselor.
+ */
+
 public class Products implements StockProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -89,4 +89,22 @@ public class ClientsService {
         }
     }
 
+    /*public Clients updateClient(long id, Clients client) {
+        Optional<Clients> optionalExistingClient = clientRepository.findById(id);
+        if (optionalExistingClient.isPresent()) {
+            Clients existingClient = optionalExistingClient.get();
+            existingClient.setId(client.getId());
+            existingClient.setAddress(client.getAddress());
+            existingClient.setEmail(client.getEmail());
+            existingClient.setPassword(client.getPassword());
+            existingClient.setUserNane(client.getUserNane());
+            existingClient.setAdmin(client.getAdmin());
+            Clients updatedClient = clientRepository.save(existingClient);
+            return updatedClient; // Return the updated client
+        } else {
+            return null;
+        }
+    }*/
+
+
 }
