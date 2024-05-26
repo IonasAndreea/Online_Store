@@ -63,7 +63,9 @@ Iar principalele relatii dintre ele sunt:
 - many to many intre Orders si Products
 - many to one intre Orders si Clients
 
-<img src="DB.jpg">
+![Screenshot (782)](https://github.com/IonasAndreea/Online_Store/assets/126804831/4458933e-8ace-4d43-afd9-4c28d2377a95)
+
+
 Pentru a gestiona relatia de many to many intre comenzile si produsele lor, este folosita o tabela de legatura numita "orders_product". Aceasta tabela are o coloana pentru "order_id", care este foregin key catre "id_order" in tabelul "orders", si o coloana pentru "product_id", care este foregin key catre "id_prod" in tabelul "products".
 Entitatea "Clients" este legata de entitatea "Orders" printr-o relatie de many to one, deoarece un client poate plasa mai multe comenzi, dar o comanda este plasata de un singur client.
 
@@ -143,6 +145,8 @@ Endpoint-ul pentru Stergerea Comenzii permite eliminarea unei comenzi specifice 
 
 
 ## *7. Diagrama UML:*
+
+![Diagrama_Clase_Online_Store](https://github.com/IonasAndreea/Online_Store/assets/126804831/dbd4fb81-e324-44cb-9d19-7ae02c97bdbd)
 
 In backend-ul aplicatiei dezvoltat in Java Spring Boot, am structurat codul pe baza principiului de separare a responsabilitatilor, ceea ce faciliteaza intretinerea si extinderea aplicatiei. Iata o descriere detaliata a fiecarei componente si a modului in care acestea colaboreaza pentru a oferi functionalitatile necesare.
 
