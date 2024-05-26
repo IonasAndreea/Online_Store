@@ -16,6 +16,7 @@ import java.util.Optional;
  * It serves as the interface between the client-side applications and the order management system.
  */
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/oredrs")
 public class OrderController {
     @Autowired

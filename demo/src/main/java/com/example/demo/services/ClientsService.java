@@ -87,6 +87,18 @@ public class ClientsService {
         } else {
             return null;
         }
+
+
+    }
+
+    public Clients authenticate(String email, String password) {
+        List<Clients> clients = clientRepository.findAll();
+        for (Clients client : clients) {
+            if (client.getEmail().equals(email) && client.getPassword().equals(password)) {
+                return client;
+            }
+        }
+        return null;
     }
 
     /*public Clients updateClient(long id, Clients client) {

@@ -16,6 +16,7 @@ import java.util.Optional;
  * This class serves as the interface between the client-side applications and the client management system.
  */
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/clients")
 public class UserController {
     @Autowired
@@ -88,6 +89,16 @@ public class UserController {
     public ResponseEntity<Void> deleteClient(@PathVariable Long id){
         clientsService.deleteClient(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Clients client) {
+        Clients loggedInClient = clientsService.authenticate(client.getEmail(), client.getPassword());
+        if (loggedInClient != null) {
+            return ResponseEntity.ok(loggedInClient);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email or password is incorrect");
+        }
     }
 
 }

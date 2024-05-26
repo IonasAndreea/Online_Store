@@ -142,8 +142,25 @@ Endpoint-ul pentru Stergerea Comenzii permite eliminarea unei comenzi specifice 
 
 
 
+## *7. Diagrama UML:*
 
+In backend-ul aplicatiei dezvoltat in Java Spring Boot, am structurat codul pe baza principiului de separare a responsabilitatilor, ceea ce faciliteaza intretinerea si extinderea aplicatiei. Iata o descriere detaliata a fiecarei componente si a modului in care acestea colaboreaza pentru a oferi functionalitatile necesare.
 
+### *Entity*
+Entitatile reprezinta clasele de baza care corespund tabelelor din baza de date. Am clase de entitate pentru Client, Produs si Order, fiecare mapata la o tabela specifica din baza de date. Aceste clase contin campuri care corespund coloanelor din tabelele respective si sunt adnotate cu anotari precum @Entity, @Table, @Id, @GeneratedValue si alte adnotari JPA (Java Persistence API) pentru a defini relatiile dintre campuri si tabele. Entitatile sunt utilizate pentru a modela datele din aplicatie si pentru a facilita operatiile de persistare.
+
+### *Services*
+Serviciile reprezinta clasa intermediara care contine logica de afaceri a aplicatiei. Am cate un serviciu pentru fiecare entitate: ClientService, ProductService si OrderService. Aceste clase sunt adnotate cu @Service si contin metode care utilizeaza repository-urile pentru a efectua operatii complexe, cum ar fi salvarea, actualizarea, stergerea. Serviciile separa logica de afaceri de logica de acces la date, ceea ce faciliteaza testarea si intretinerea codului.
+
+### *Repository*
+Repository-urile sunt interfete care extind JpaRepository, furnizate de Spring Data JPA. Aceste interfete ofera metode CRUD (Create, Read, Update, Delete) implicite pentru a interactiona cu baza de date, fara a fi necesar sa scriem cod SQL manual.
+
+### *Controller*
+Controlerele sunt clase adnotate cu @RestController care gestioneaza cererile HTTP si trimit raspunsurile corespunzatoare. Fiecare controler este responsabil pentru un set de endpoint-uri RESTful care corespund operatiilor de creare, citire, actualizare si stergere pentru entitatile respective. De exemplu, ClientController contine metode mapate la endpoint-uri precum /clients, /clients/{id}, /clients/search. Aceste metode primesc cereri HTTP de la front-end, apeleaza metodele corespunzatoare din serviciu si returneaza raspunsuri JSON. Controlerele sunt punctele de intrare in aplicatie, gestionand direct interactiunea cu utilizatorii.
+
+### *Principiul de funcionare*
+Cand un utilizator interactioneaza cu front-end-ul aplicatiei, cum ar fi prin adaugarea unui nou client, o cerere HTTP POST este trimisa catre endpoint-ul relevant din ClientController. Controlerul primeste cererea si apeleaza metoda corespunzatoare din ClientService, care, la randul sau, utilizeaza ClientRepository pentru a salva noul client in baza de date. Dupa ce operatia este finalizata, controlerul trimite un raspuns de succes inapoi catre front-end. Acest flux de date este similar pentru toate celelalte operatii (vizualizare, cautare, editare, stergere) si entitati (Client, Produs, Order), asigurand o arhitectura clara si modulara.
+Aceasta structura modulara faciliteaza itretinerea si scalabilitatea aplicatiei, permitand adaugarea usoara de noi functionalitati sau modificarea celor existente fara a afecta alte parti ale sistemului.
 
 
 

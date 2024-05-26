@@ -16,6 +16,7 @@ import java.util.Optional;
  * This class acts as the interface between the client-side applications and the product management system.
  */
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/products")
 public class ProductController {
     @Autowired
