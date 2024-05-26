@@ -68,6 +68,10 @@ Entitatea "Clients" este legata de entitatea "Orders" printr-o relatie de many t
 
 Aceasta schema permite să fie gestionate comenzile, produsele si clientii lor in cadrul unei aplicatii, stabilind relatii intre aceste entitati in baza de date pentru a asigura coerenta si integritatea datelor.
 
+![Screenshot (782)](https://github.com/IonasAndreea/Online_Store/assets/126804831/4458933e-8ace-4d43-afd9-4c28d2377a95)
+
+
+## *4. Diagrama UML *
 
 
 
