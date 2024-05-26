@@ -167,8 +167,9 @@ Cand un utilizator interactioneaza cu front-end-ul aplicatiei, cum ar fi prin ad
 Aceasta structura modulara faciliteaza itretinerea si scalabilitatea aplicatiei, permitand adaugarea usoara de noi functionalitati sau modificarea celor existente fara a afecta alte parti ale sistemului.
 
 
+### *Use Case*
 
-
+![Use_Case](https://github.com/IonasAndreea/Online_Store/assets/126804831/c9f9e06c-b5cf-4c66-bfa9-c8d22293c096)
 
 
 
