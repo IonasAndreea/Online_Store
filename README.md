@@ -71,7 +71,7 @@ Aceasta schema permite să fie gestionate comenzile, produsele si clientii lor i
 ![Screenshot (782)](https://github.com/IonasAndreea/Online_Store/assets/126804831/4458933e-8ace-4d43-afd9-4c28d2377a95)
 
 
-## *4. Diagrama UML *
+## *4. Diagrama UML*
 
 
 
