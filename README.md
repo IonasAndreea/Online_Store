@@ -71,6 +71,7 @@ Aceasta schema permite să fie gestionate comenzile, produsele si clientii lor i
 
 
 
+![Diagrama_Clase_Online_Store](https://github.com/IonasAndreea/Online_Store/assets/126804831/59bd4a7f-8808-4c87-93c1-a33612493f4a)
 
 
 
